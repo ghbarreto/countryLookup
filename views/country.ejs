@@ -1,0 +1,50 @@
+<%- include('header'); %>
+<%- include('script'); %>
+
+<div class="d-flex justify-content-center">
+    <div class="col-auto my-1">
+        <form class="form-inline" action='/country' method="post">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Countries">
+                <% for(var i=0; i < values.length; i++) {%>
+                    <option value="<%= values[i].name %>"> <%= values[i].name.substring(0, 15) %> </option>
+                <% } %> 
+            </select>
+            <a href="/">Return</a>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top:50px;">
+    <div class="row">
+        <div class="card" style="width: 40rem;">
+            <% for(var i=0; i < values.length; i++) {%>
+            <img class="card-img-top rounded mx-auto d-block" style="width:500px;" src=" <%= values[i].flag %> " alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title text-center"><%= values[i].name %></h5>
+                <div class="row">
+                    <p class="col-6 col-sm-4 card-text text-info"> Capital: <%= values[i].capital %> </p>
+                    <p class="col-6 col-sm-4 card-text text-info"> Region: <%= values[i].region %> </p>
+                    <p class="col-6 col-sm-4 card-text text-info"> Population: <%= values[i].population %> </p>
+                    <p class="col-6 col-sm-4 card-text text-info"> Demonym: <%= values[i].demonym %> </p>
+                    <div class="w-100 d-none d-md-block">
+                        <p class="col-6 col-lg-8 card-text text-info"> Subregion: <%= values[i].subregion %> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <%= values[i].name %> Information
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+<%- include('footer'); %>
