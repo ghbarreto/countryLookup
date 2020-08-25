@@ -1,28 +1,28 @@
 <%- include('header'); %>
-<div class="row" style="padding: 30px;">
-    <form action='/continents' method='post'>
-        <h3>Continents</h3>
-        <div class="list-group">
-        <% for(var i = 0; i < continents.length; i++) {%>
-            <button type="submit" value="<%= continents[i] %>" name="continent" class="list-group-item list-group-item-action"><%= continents[i] %> </button>
-        <% } %>           
-        </div>
-    </form>
-
-    <div class="d-flex justify-content-center">
-        <div class="col-auto my-1">
-            <h3>Country</h3>
-            <form class="form-inline" action='/country' method="post">
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Countries">
-                    <% for(var i=0; i < values.length; i++) {%>
+<div class="container">
+    <div class="row" style="padding: 30px;">
+        <form action='/continents' method='POST'>
+            <% for(var i = 0; i < continents.length; i++) {%>
+            <button type="submit" value="<%= continents[i] %>" name="Continent"
+                class="list-group-item list-group-item-action"> <%= continents[i] %> </button>
+            <% } %>
+        </form>
+        <div class="d-flex justify-content-center">
+            <div class="col-auto my-1">
+                <h3>Country</h3>
+                <form class="form-inline" action='/country' method="post">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Countries">
+                        <% for(var i=0; i < values.length; i++) {%>
                         <option value="<%= values[i].name %>"> <%= values[i].name.substring(0, 15) %> </option>
-                    <% } %> 
-                </select>
-                
-                <button class="btn btn-primary" type="submit">Search</button>
-                <a href="/">Return</a>
-            </form>
+                        <% } %>
+                    </select>
+<!--  -->
+                    <button class="btn btn-primary" type="submit">Search</button>
+                    <a href="/">Return</a>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 <%- include('footer'); %>

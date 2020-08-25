@@ -1,3 +1,18 @@
-hello
+<%- include('header'); %>
 
-<%= val %>
+<div class="container">
+    <div class="row">
+        <% for(var i = 0; i < val.length; i++) {%>
+        <div class="card col-sm-3 ml-3 mb-3">
+            <img class="card-img-top" src="<%= val[i].flag %>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><%= val[i].name %></h5>
+                <form action='/country' method="POST">
+                    <button name="Countries" value="<%= val[i].name %>" type="submit">Learn More</button>
+                </form>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+    <%- include('footer'); %>
